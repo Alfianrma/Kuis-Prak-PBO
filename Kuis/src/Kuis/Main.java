@@ -7,15 +7,15 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int kategori, menu;
-        String nama,sekolah;
+        String nama, sekolah;
         System.out.println("=== Lomba Apresiasi Pahlawan Wanita Indonesia ===");
         System.out.println("Kategori Lomba :");
         System.out.println("\t 1. Animasi");
         System.out.println("\t 2. Menulis Surat");
         System.out.print("Pilih Kategotri Lomba : ");
         kategori = input.nextInt();
-        if(kategori == 1){
-            double NAlur,NKonten, NKreativitas, NSinematografi;
+        if (kategori == 1) {
+            double Alur, Konten, KreativitasAnimasi, Sinematografi;
             System.out.println("== Form Pendaftaran ==");
             System.out.print("Input Nama : ");
             nama = input.next();
@@ -24,14 +24,14 @@ public class Main {
             System.out.println("");
             System.out.println("== Form Penilaian ==");
             System.out.print("Nilai Alur Cerita :");
-            NAlur = input.nextDouble();
+            Alur = input.nextDouble();
             System.out.print("Nilai Konten :");
-            NKonten = input.nextDouble();
+            Konten = input.nextDouble();
             System.out.print("Nilai Kreativitas :");
-            NKreativitas = input.nextDouble();
+            KreativitasAnimasi = input.nextDouble();
             System.out.print("Nilai Sinematografi :");
-            NSinematografi = input.nextDouble();
-            do{
+            Sinematografi = input.nextDouble();
+            do {
                 String Keterangan;
                 System.out.println("");
                 System.out.println("== Menu ==");
@@ -41,38 +41,34 @@ public class Main {
                 System.out.print("Pilih :");
                 menu = input.nextInt();
                 System.out.println("");
-                if(menu == 1){
-                    PesertaLomba peserta = new PesertaLomba(NAlur, NKonten, NKreativitas, NSinematografi);
-                    System.out.println("\t Nilai Akhir : " + peserta.HAnimasi);
-                    if(peserta.HAnimasi <= 85){
+                if (menu == 1) {
+                    PesertaAnimasi peserta = new PesertaAnimasi(Alur, Konten, KreativitasAnimasi, Sinematografi);
+                    System.out.println("\t Nilai Akhir : " + peserta.hasil());
+                    if (peserta.hasil() <= 85) {
                         Keterangan = "Tim " + nama + " Dari Sekolah " + sekolah + " Tidak Lolos Seleksi Lomba Animasi";
-                    }
-                    else{
+                    } else {
                         Keterangan = "Selamat, Tim " + nama + " Dari Sekolah " + sekolah + " Lolos Seleksi Lomba Animasi";
                     }
-                    System.out.println("Keterangan : " + Keterangan);
-                }
-                else if(menu == 2){
+                    System.out.println("\t Keterangan : " + Keterangan);
+                } else if (menu == 2) {
                     System.out.println("== Form Penilaian ==");
                     System.out.print("Nilai Alur Cerita :");
-                    NAlur = input.nextDouble();
+                    Alur = input.nextDouble();
                     System.out.print("Nilai Konten :");
-                    NKonten = input.nextDouble();
+                    Konten = input.nextDouble();
                     System.out.print("Nilai Kreativitas :");
-                    NKreativitas = input.nextDouble();
+                    KreativitasAnimasi = input.nextDouble();
                     System.out.print("Nilai Sinematografi :");
-                    NSinematografi = input.nextDouble();
-                }
-                else if(menu == 3){
+                    Sinematografi = input.nextDouble();
+                } else if (menu == 3) {
                     System.exit(1);
-                }
-                else{
+                } else {
                     System.out.println("Opsi tidak ada.Masukkan opsi dengan benar!");
                 }
-            }while (menu != 3);
+            } while (menu != 3);
         }
-        if(kategori == 2){
-            double NStruktur,NIsi, NKreativitas, NKaidah;
+        if (kategori == 2) {
+            double Struktur, Isi, KreativitasSurat, KaidahBahasa;
             System.out.println("== Form Pendaftaran ==");
             System.out.print("Input Nama : ");
             nama = input.next();
@@ -80,15 +76,15 @@ public class Main {
             sekolah = input.next();
             System.out.println("");
             System.out.println("== Form Penilaian ==");
-            System.out.print("Nilai Struktur :");
-            NStruktur = input.nextDouble();
-            System.out.print("Nilai Isi :");
-            NIsi = input.nextDouble();
+            System.out.print("Nilai Alur Cerita :");
+            Struktur = input.nextDouble();
+            System.out.print("Nilai Konten :");
+            Isi = input.nextDouble();
             System.out.print("Nilai Kreativitas :");
-            NKreativitas = input.nextDouble();
-            System.out.print("Nilai Kaidah :");
-            NKaidah = input.nextDouble();
-            do{
+            KreativitasSurat = input.nextDouble();
+            System.out.print("Nilai Sinematografi :");
+            KaidahBahasa = input.nextDouble();
+            do {
                 String Keterangan;
                 System.out.println("");
                 System.out.println("== Menu ==");
@@ -98,35 +94,31 @@ public class Main {
                 System.out.print("Pilih :");
                 menu = input.nextInt();
                 System.out.println("");
-                if(menu == 1){
-                    PesertaLomba peserta = new PesertaLomba(NStruktur,NIsi, NKreativitas, NKaidah);
-                    System.out.println("\t Nilai Akhir : " + peserta.hasilAnimasi());
-                    if(peserta.HAnimasi <= 85){
+                if (menu == 1) {
+                    PesertaSurat peserta = new PesertaSurat(Struktur, Isi, KreativitasSurat, KaidahBahasa);
+                    System.out.println("\t Nilai Akhir : " + peserta.hasil());
+                    if (peserta.hasil() <= 85) {
                         Keterangan = "Tim " + nama + " Dari Sekolah " + sekolah + " Tidak Lolos Seleksi Lomba Menulis Surat";
-                    }
-                    else{
+                    } else {
                         Keterangan = "Selamat, Tim " + nama + " Dari Sekolah " + sekolah + " Lolos Seleksi Lomba Menulis Surat";
                     }
-                    System.out.println("Keterangan : " + Keterangan);
-                }
-                else if(menu == 2){
-                    System.out.print("Nilai Struktur :");
-                    NStruktur = input.nextDouble();
-                    System.out.print("Nilai Isi :");
-                    NIsi = input.nextDouble();
-                    System.out.print("Nilai Kreativitas :");
-                    NKreativitas = input.nextDouble();
-                    System.out.print("Nilai Kaidah :");
-                    NKaidah = input.nextDouble();
-                }
-                else if(menu == 3){
+                    System.out.println("\t Keterangan : " + Keterangan);
+                } else if (menu == 2) {
+                    System.out.println("== Form Penilaian ==");
+                    System.out.print("Nilai Struktur Surat:");
+                    Struktur = input.nextDouble();
+                    System.out.print("Nilai Isi Surat :");
+                    Isi = input.nextDouble();
+                    System.out.print("Nilai Kreativitas Surat:");
+                    KreativitasSurat = input.nextDouble();
+                    System.out.print("Nilai Kaidah Bahasa:");
+                    KaidahBahasa = input.nextDouble();
+                } else if (menu == 3) {
                     System.exit(1);
-                }
-                else{
+                } else {
                     System.out.println("Opsi tidak ada.Masukkan opsi dengan benar!");
                 }
-            }while (menu != 3);
+            } while (menu != 3);
         }
-
     }
 }

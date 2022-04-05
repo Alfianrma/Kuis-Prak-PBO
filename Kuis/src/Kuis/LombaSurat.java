@@ -5,5 +5,4 @@ public interface LombaSurat {
     double isi();
     double kreativitas();
     double KaidahBahasa();
-    double HasilSurat();
 }
